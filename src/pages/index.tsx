@@ -2,7 +2,14 @@ import React from "react"
 import { createGlobalStyle } from "styled-components"
 
 import { ResponsiveEmbed } from "../components"
-import { Header, Introduction, Nav, Discography, SocialMedia } from "../modules"
+import {
+  Header,
+  Introduction,
+  Nav,
+  Discography,
+  Footer,
+  SocialMedia,
+} from "../modules"
 import { globalStyles } from "../theme"
 import { NavProvider } from "../helpers/navContext"
 
@@ -17,6 +24,7 @@ export default () => (
       <Introduction />
       <Discography />
       <Introduction />
+      <Footer />
 
       {/* <SocialMedia /> */}
       {/* <ResponsiveEmbed src="https://www.youtube.com/embed/7JTNXsxKIpk" /> */}

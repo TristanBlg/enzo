@@ -7,5 +7,5 @@ const Wrapper = styled.h1`
 `
 
 export const Logo = () => {
-  return <Wrapper>GROS SEXE</Wrapper>
+  return <Wrapper>ENZO BOULANGER</Wrapper>
 }

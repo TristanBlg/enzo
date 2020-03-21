@@ -2,15 +2,14 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import {
-  SmallContainer,
   Title as _Title,
   Text as _Text,
-  Subtitle,
+  Subtitle as _Subtitle,
 } from "../../components"
-import spirit from "./spirit.jpg"
-import eyeball from "./eyeball.jpg"
-import album3 from "./album_3.jpg"
-import album4 from "./album_4.png"
+import spiritCover from "./spirit.jpg"
+import eyeballCover from "./eyeball.jpg"
+import insteadCover from "./instead.jpg"
+import princesdelamourCover from "./princesdelamour.jpg"
 
 const Wrapper = styled.section`
   display: grid;
@@ -34,48 +33,59 @@ const End = styled.div`
 const Cd = styled.div<{ background: string }>`
   background: url(${props => props.background}) no-repeat center center / cover;
   padding-top: 100%;
+  cursor: pointer;
+  filter: grayscale(0%);
+  transition: filter 0.3s ease-in-out;
+
+  &:hover {
+    filter: grayscale(100%);
+  }
 `
 
 const Title = styled(_Title)`
-  margin-bottom: 3.125rem;
+  margin-bottom: 0.5rem;
+`
+
+const Subtitle = styled(_Subtitle)`
+  margin-bottom: 2rem;
 `
 
 const Text = styled(_Text)`
-  margin-bottom: 1.875rem;
+  margin-bottom: 2rem;
 `
 
 const cds = [
   {
     id: 1,
-    title: "Princes de l'amour",
-    band: "Johnny Mafia",
-    background: album1,
-    description: "C'est un album de merde",
+    title: "PRINCES DE L'AMOUR",
+    band: "JOHNNY MAFIA",
+    background: princesdelamourCover,
+    description: "2018",
     spotify: "https://open.spotify.com/embed/album/0gwWHpUpCjX0Ax8cspQqf4",
   },
   {
     id: 2,
-    title: "Spirit",
-    band: "Johnny Mafia",
-    background: album4,
-    description: "bbbb",
+    title: "SPIRIT",
+    band: "JOHNNY MAFIA",
+    background: spiritCover,
+    description: "2019",
     spotify: "https://open.spotify.com/embed/album/53UL53SNjuqTU5y9AnK4UA",
   },
   {
     id: 3,
-    title: "Eyeball",
-    band: "Johnny Mafia",
-    background: album3,
-    description: "bbbb",
+    title: "EYEBALL",
+    band: "JOHNNY MAFIA",
+    background: eyeballCover,
+    description: "2019",
     spotify: "https://open.spotify.com/embed/album/1mrs8tyB2kSpUZ7ZeHCuyU",
   },
   {
     id: 4,
-    title: "Instead",
-    band: "VEB Project",
-    background: album2,
-    description: "bbbb",
-    spotify: "https://open.spotify.com/embed/album/0gwWHpUpCjX0Ax8cspQqf4",
+    title: "INSTEAD",
+    band: "VEB PROJECT",
+    background: insteadCover,
+    description: "2012",
+    spotify: null,
   },
 ]
 
@@ -105,13 +115,15 @@ export const Discography = () => {
         <Title>{selectedCd.title}</Title>
         <Subtitle>{selectedCd.band}</Subtitle>
         <Text>{selectedCd.description}</Text>
-        <iframe
-          src={selectedCd.spotify}
-          width="300"
-          height="80"
-          frameBorder="0"
-          allow="encrypted-media"
-        ></iframe>
+        {selectedCd.spotify && (
+          <iframe
+            src={selectedCd.spotify}
+            width="300"
+            height="80"
+            frameBorder="0"
+            allow="encrypted-media"
+          ></iframe>
+        )}
       </End>
     </Wrapper>
   )
