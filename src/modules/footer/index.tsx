@@ -2,45 +2,76 @@ import React from "react"
 import styled from "styled-components"
 
 import {
-  SmallContainer,
-  Title as _Title,
   Text as _Text,
+  Subtitle as _Subtitle,
+  Container,
+  SocialMedia,
 } from "../../components"
 
-const Wrapper = styled.section`
-  padding-top: 6.875rem;
-  padding-bottom: 5rem;
-  background-color: #f4f4f4;
-`
+const Wrapper = styled(Container)`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5.625rem 2rem 3.125rem;
 
-const Title = styled(_Title)`
-  margin-bottom: 3.125rem;
+  @media screen and (max-width: 56rem) {
+    grid-template-columns: 1fr;
+  }
+`
+const Column = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+
+  @media screen and (max-width: 56rem) {
+    grid-template-columns: 1fr;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+`
+const Box = styled.div`
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+`
+const Subtitle = styled(_Subtitle)`
+  margin-bottom: 1rem;
 `
 
 const Text = styled(_Text)`
-  margin-bottom: 1.875rem;
+  margin-bottom: 0.5rem;
 `
 
 export const Footer = () => {
   return (
-    <Wrapper>
-      <SmallContainer>
-        <Title>Footer</Title>
-        <Text>
-          <strong>Sed ut perspiciatis</strong> unde omnis iste natus error sit
-          voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-          ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo.
-        </Text>
-        <Text>
-          <strong>Sed ut perspiciatis</strong> unde omnis iste natus error sit
-          voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-          ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo. <strong>Nemo enim ipsam voluptatem</strong> quia
-          voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-          magni dolores eos qui ratione voluptatem sequi nesciunt.
-        </Text>
-      </SmallContainer>
+    <Wrapper as="footer" id="footer">
+      <Column>
+        <Box>
+          <Subtitle>GET IN TOUCH</Subtitle>
+          <Text>
+            <Text as="a" href="mailto:enzo.boulanger@gmail.com">
+              enzo.boulanger@gmail.com
+            </Text>
+          </Text>
+        </Box>
+      </Column>
+      <Column>
+        <Box>
+          <Subtitle>SOCIAL MEDIA</Subtitle>
+          <SocialMedia />
+        </Box>
+        <Box>
+          <Subtitle>COPYRIGHTS</Subtitle>
+          <Text>© Enzo BOULANGER 2020, Johnny Mafia</Text>
+          <Text>
+            Build with &#128154; by{" "}
+            <a href="https://fr.linkedin.com/in/boulangertristan">
+              <strong>Tristan BOULANGER</strong>
+            </a>
+          </Text>
+        </Box>
+      </Column>
     </Wrapper>
   )
 }

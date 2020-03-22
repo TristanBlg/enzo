@@ -1,14 +1,14 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
+import { Helmet } from "react-helmet"
 
-import { ResponsiveEmbed } from "../components"
 import {
   Header,
   Introduction,
   Nav,
   Discography,
+  Tour,
   Footer,
-  SocialMedia,
 } from "../modules"
 import { globalStyles } from "../theme"
 import { NavProvider } from "../helpers/navContext"
@@ -18,16 +18,19 @@ const GlobalStyle = createGlobalStyle`${globalStyles}`
 export default () => (
   <>
     <GlobalStyle />
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Enzo Boulanger - Batteur et compositeur</title>
+    </Helmet>
     <NavProvider>
       <Nav />
       <Header />
-      <Introduction />
-      <Discography />
-      <Introduction />
+      <main role="main">
+        <Introduction />
+        <Discography />
+        <Tour />
+      </main>
       <Footer />
-
-      {/* <SocialMedia /> */}
-      {/* <ResponsiveEmbed src="https://www.youtube.com/embed/7JTNXsxKIpk" /> */}
     </NavProvider>
   </>
 )

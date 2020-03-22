@@ -6,6 +6,16 @@
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-typescript`, 'gatsby-plugin-svgr', `gatsby-transformer-remark`
+    `gatsby-plugin-typescript`,
+    "gatsby-plugin-svgr",
+    `gatsby-transformer-remark`,
+    "gatsby-plugin-react-helmet",
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+    //     trackingId: "UA-XXXXXXXXX-X",
+    //   },
+    // },
   ],
 }

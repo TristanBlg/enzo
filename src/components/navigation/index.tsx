@@ -2,14 +2,39 @@ import React, { useContext } from "react"
 import styled, { css } from "styled-components"
 
 import { NavContext } from "../../helpers/navContext"
+import { scrollBy } from "../../helpers/scrollBy"
 
-const Nav = styled.ul`
+const navResponsive = css`
+  position: fixed;
+  top: 0;
+  min-width: 280px;
+  width: 80%;
+  box-shadow: -100px 0 100px rgba(0, 0, 0, 0);
+  right: 0;
+  padding: 4rem 4rem 4rem 0;
+  background: white;
+  color: #111 !important;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: flex-end;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.3s ease-in-out;
+`
+const navResponsiveActive = css`
+  transform: translate3d(0%, 0, 0);
+  box-shadow: -100px 0 100px rgba(0, 0, 0, 0.4);
+`
+const Nav = styled.ul<{ isActive: boolean; isResponsive: boolean }>`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  ${props => props.isResponsive && navResponsive}
+  ${props => props.isResponsive && props.isActive && navResponsiveActive}
 `
 
 const itemActive = css`
@@ -17,75 +42,65 @@ const itemActive = css`
 `
 
 interface ItemProps {
-  isActive?: boolean
+  isItemActive?: boolean
   isNavActive: boolean
+  isResponsive: boolean
+  onClick: Function
 }
+
+const itemResponsive = css`
+  color: #111111;
+  margin-left: 0;
+  font-siwe: 2rem;
+  margin-bottom: 2rem;
+`
 
 const Item = styled.li<ItemProps>`
   margin-left: 2rem;
+  cursor: pointer;
   color: ${props => (props.isNavActive ? "#666666" : "#ffffff")};
 
-  ${props => props.isActive && props.isNavActive && itemActive}
+  ${props => props.isNavActive && props.isItemActive && itemActive}
+  ${props => props.isResponsive && itemResponsive}
 `
 
+type Items = Array<{ id: string; text: string }>
+
 interface NavigationProps {
-  items: Array<{
-    text: string
-    isActive: boolean
-  }>
+  items: Items
 }
+
 export const Navigation = ({ items, ...props }: NavigationProps) => {
-  const { isNavActive } = useContext(NavContext)
+  const {
+    isNavActive,
+    isNavResponsive,
+    isNavResponsiveActive,
+    setIsNavResponsiveActive,
+  } = useContext(NavContext)
+
+  const handleClick = id => {
+    if (isNavResponsive) setIsNavResponsiveActive(!isNavResponsiveActive)
+
+    scrollBy(id, 80)
+  }
 
   return (
-    <Nav {...props}>
+    <Nav
+      {...props}
+      isResponsive={isNavResponsive}
+      isActive={isNavResponsiveActive}
+    >
       {items.map((item, key) => (
-        <Item key={key} isNavActive={isNavActive} isActive={item.isActive}>
+        <Item
+          key={key}
+          isResponsive={isNavResponsive}
+          isNavActive={isNavActive}
+          isItemActive={false}
+          onClick={() => handleClick(`#${item.id}`)}
+        >
           {item.text}
         </Item>
       ))}
     </Nav>
-  )
-}
-
-const Bar = styled.span`
-  display: block;
-  background: black;
-  width: 100%;
-  height: 0.125rem;
-  position: absolute;
-  right: 0;
-`
-
-const Button = styled.button`
-  height: 2.25rem;
-  width: 1.875rem;
-  padding: 0;
-  background: none;
-  border: 0;
-  position: relative;
-  cursor: pointer;
-
-  ${Bar} {
-    &:nth-child(1) {
-      top: 0.625rem;
-    }
-    &:nth-child(2) {
-      top: 1.0625rem;
-      width: 50%;
-    }
-    &:nth-child(3) {
-      top: 1.5rem;
-    }
-  }
-`
-
-export const Hamburger = () => {
-  return (
-    <Button>
-      <Bar></Bar>
-      <Bar></Bar>
-      <Bar></Bar>
-    </Button>
   )
 }

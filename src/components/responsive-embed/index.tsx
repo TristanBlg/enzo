@@ -20,9 +20,9 @@ type Props = {
   src: string
 }
 
-export const ResponsiveEmbed = ({ src }: Props) => {
+export const ResponsiveEmbed = ({ src, ...props }: Props) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Iframe
         src={src}
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

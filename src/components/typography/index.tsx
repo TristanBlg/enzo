@@ -5,14 +5,14 @@ const reset = css`
   padding: 0;
 `
 
-export const Title = styled.h1`
+export const Title = styled.h3`
   ${reset}
   font-size: 2rem;
   font-weight: 500;
   text-align: center;
 `
 
-export const Subtitle = styled.h2`
+export const Subtitle = styled.h4`
   ${reset}
   font-size: 1.125rem;
   font-weight: 400;

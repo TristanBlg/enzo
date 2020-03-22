@@ -16,4 +16,9 @@ export const globalStyles = css`
   *::before {
     box-sizing: border-box;
   }
+
+  a {
+    color: #111111;
+    text-decoration: none;
+  }
 `

@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useContext } from "react"
 import styled from "styled-components"
 
-import banner from "./banner.jpg"
+// @ts-ignore
+import background from "./background.jpg"
 import { NavContext } from "../../helpers/navContext"
+import { getElementPosition } from "../../helpers/position"
 
 export const HEADER_HEIGHT = "40rem"
 
@@ -12,12 +14,12 @@ const Wrapper = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url(${banner}) no-repeat right top / cover;
+  background: url(${background}) no-repeat left bottom / cover;
   height: ${HEADER_HEIGHT};
   color: #ffffff;
+  padding: 0 2rem;
+  text-align: center;
 `
-
-// filter: grayscale(100%);
 
 const Name = styled.h1`
   font-weight: 700;
@@ -25,6 +27,10 @@ const Name = styled.h1`
   letter-spacing: 0.3rem;
   margin: 0;
   text-transform: uppercase;
+
+  @media screen and (max-width: 56rem) {
+    font-size: 2.5rem;
+  }
 `
 
 const Description = styled.h2`
@@ -33,44 +39,44 @@ const Description = styled.h2`
   letter-spacing: 0.3rem;
   margin: 0;
   text-transform: uppercase;
-`
 
-function getElementPosition(element) {
-  if (!element) return false
-  const { bottom } = element.getBoundingClientRect()
-  return bottom
-}
+  @media screen and (max-width: 56rem) {
+    font-size: 1rem;
+  }
+`
 
 export const Header = () => {
   const WrapperRef = useRef(null)
   const { setIsNavActive, setIsNavFixed } = useContext(NavContext)
 
   useEffect(() => {
-    if (WrapperRef.current) {
-      const handleScroll = () => {
-        const pos = getElementPosition(WrapperRef.current)
+    const handleScroll = () => {
+      const pos = getElementPosition(WrapperRef.current).bottom
 
-        if (pos / 2 <= window.scrollY) {
-          setIsNavActive(true)
-        } else {
-          setIsNavActive(false)
-        }
-        if (pos - 5 * 16 <= 0) {
-          setIsNavFixed(true)
-        } else {
-          setIsNavFixed(false)
-        }
+      if (pos / 2 <= window.scrollY) {
+        setIsNavActive(true)
+      } else {
+        setIsNavActive(false)
       }
-
-      window.addEventListener("scroll", handleScroll)
+      if (pos - 5 * 16 <= 0) {
+        setIsNavFixed(true)
+      } else {
+        setIsNavFixed(false)
+      }
     }
-  }, [WrapperRef.current])
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
     <>
       <Wrapper ref={WrapperRef}>
         <Name>ENZO BOULANGER</Name>
-        <Description>Batteur, guitariste, bassiste et compositeur</Description>
+        <Description>Batteur, bassiste et compositeur</Description>
       </Wrapper>
     </>
   )

@@ -5,13 +5,13 @@ const responsive = css`
   margin: 0 auto;
 `
 
-export const MainContainer = styled.main`
+export const Container = styled.div`
   width: 68rem;
 
   ${responsive}
 `
 
-export const SmallContainer = styled.main`
+export const SmallContainer = styled.div`
   width: 35.625rem;
 
   ${responsive}

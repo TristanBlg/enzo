@@ -1,7 +1,12 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import styled, { css } from "styled-components"
 
-import { Logo, Navigation, MainContainer } from "../../components"
+import {
+  Logo,
+  Navigation,
+  Container as _Container,
+  Hamburger,
+} from "../../components"
 import { NavContext } from "../../helpers/navContext"
 import { HEADER_HEIGHT } from "../"
 
@@ -17,7 +22,7 @@ const fixedNav = css`
   top: 0;
 `
 
-const Container = styled(MainContainer)`
+const Container = styled(_Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,21 +52,44 @@ const Wrapper = styled.nav<NavProps>`
   ${props => props.isFixed && fixedNav}
 `
 
-export const Nav = () => {
-  const { isNavActive, isNavFixed } = useContext(NavContext)
+type Items = Array<{ id: string; text: string }>
 
-  const items = [
-    { text: "Biographie", isActive: true },
-    { text: "Discographie", isActive: false },
-    { text: "Sponsors", isActive: false },
-    { text: "Concerts", isActive: false },
-    { text: "Formations", isActive: false },
-  ]
+const items: Items = [
+  { id: "introduction", text: "Biographie" },
+  { id: "discography", text: "Discographie" },
+  { id: "tour", text: "Concerts" },
+  { id: "footer", text: "Contact" },
+]
+
+export const Nav = () => {
+  const {
+    isNavActive,
+    isNavFixed,
+    isNavResponsive,
+    setIsNavResponsive,
+  } = useContext(NavContext)
+
+  useEffect(() => {
+    const watchMedia = () => {
+      if (window.matchMedia("(max-width: 56rem)").matches) {
+        setIsNavResponsive(true)
+      } else {
+        setIsNavResponsive(false)
+      }
+    }
+
+    window.addEventListener("resize", watchMedia)
+
+    return () => {
+      window.removeEventListener("resize", watchMedia)
+    }
+  }, [])
 
   return (
     <Wrapper isActive={isNavActive} isFixed={isNavFixed}>
       <Container>
         <Logo />
+        {isNavResponsive && <Hamburger />}
         <Navigation items={items} />
       </Container>
     </Wrapper>

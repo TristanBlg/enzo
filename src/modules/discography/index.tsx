@@ -6,43 +6,51 @@ import {
   Text as _Text,
   Subtitle as _Subtitle,
 } from "../../components"
+// @ts-ignore
 import spiritCover from "./spirit.jpg"
+// @ts-ignore
 import eyeballCover from "./eyeball.jpg"
+// @ts-ignore
 import insteadCover from "./instead.jpg"
+// @ts-ignore
 import princesdelamourCover from "./princesdelamour.jpg"
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template: "a b" / 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 56rem) {
+    grid-template-columns: 1fr;
+  }
 `
 const Start = styled.div`
-  grid-area: a;
   display: grid;
   grid-template: repeat(2, auto) / 1fr 1fr;
 `
 const End = styled.div`
-  grid-area: b;
   background: #2d3436;
+  padding: 2rem;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  @media screen and (max-width: 56rem) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 `
-const Cd = styled.div<{ background: string }>`
+const Bloc = styled.div<{ background: string }>`
   background: url(${props => props.background}) no-repeat center center / cover;
   padding-top: 100%;
   cursor: pointer;
-  filter: grayscale(0%);
   transition: filter 0.3s ease-in-out;
-
-  &:hover {
-    filter: grayscale(100%);
-  }
 `
 
 const Title = styled(_Title)`
+  font-weight: 700;
   margin-bottom: 0.5rem;
 `
 
@@ -51,12 +59,27 @@ const Subtitle = styled(_Subtitle)`
 `
 
 const Text = styled(_Text)`
+  color: #ffffff;
   margin-bottom: 2rem;
 `
 
-const cds = [
+const Iframe = styled.iframe`
+  max-width: 100%;
+`
+
+type Album = {
+  id: string
+  title: string
+  band: string
+  background: string
+  description: string
+  spotify?: string
+}
+type Albums = Array<Album>
+
+const albums: Albums = [
   {
-    id: 1,
+    id: "1",
     title: "PRINCES DE L'AMOUR",
     band: "JOHNNY MAFIA",
     background: princesdelamourCover,
@@ -64,7 +87,7 @@ const cds = [
     spotify: "https://open.spotify.com/embed/album/0gwWHpUpCjX0Ax8cspQqf4",
   },
   {
-    id: 2,
+    id: "2",
     title: "SPIRIT",
     band: "JOHNNY MAFIA",
     background: spiritCover,
@@ -72,7 +95,7 @@ const cds = [
     spotify: "https://open.spotify.com/embed/album/53UL53SNjuqTU5y9AnK4UA",
   },
   {
-    id: 3,
+    id: "3",
     title: "EYEBALL",
     band: "JOHNNY MAFIA",
     background: eyeballCover,
@@ -80,49 +103,46 @@ const cds = [
     spotify: "https://open.spotify.com/embed/album/1mrs8tyB2kSpUZ7ZeHCuyU",
   },
   {
-    id: 4,
+    id: "4",
     title: "INSTEAD",
     band: "VEB PROJECT",
     background: insteadCover,
     description: "2012",
-    spotify: null,
   },
 ]
 
 export const Discography = () => {
-  const [selectedCd, setSelectedCd] = useState(cds[0])
+  const [selectedAlbum, setSelectedAlbum] = useState(albums[0])
 
-  const handleClick = id => {
-    console.log(id)
-    const cd = cds.find(cd => cd.id === id)
-    console.log(cd)
+  const handleClick = (id: string) => {
+    const album: Album = albums.find(album => album.id === id)
 
-    setSelectedCd(cd)
+    setSelectedAlbum(album)
   }
 
   return (
-    <Wrapper>
+    <Wrapper id="discography">
       <Start>
-        {cds.map(cd => (
-          <Cd
-            key={cd.id}
-            background={cd.background}
-            onClick={() => handleClick(cd.id)}
+        {albums.map(album => (
+          <Bloc
+            key={album.id}
+            background={album.background}
+            onClick={() => handleClick(album.id)}
           />
         ))}
       </Start>
       <End>
-        <Title>{selectedCd.title}</Title>
-        <Subtitle>{selectedCd.band}</Subtitle>
-        <Text>{selectedCd.description}</Text>
-        {selectedCd.spotify && (
-          <iframe
-            src={selectedCd.spotify}
+        <Title>{selectedAlbum.title}</Title>
+        <Subtitle>{selectedAlbum.band}</Subtitle>
+        <Text>{selectedAlbum.description}</Text>
+        {selectedAlbum.spotify && (
+          <Iframe
+            src={selectedAlbum.spotify}
             width="300"
             height="80"
             frameBorder="0"
             allow="encrypted-media"
-          ></iframe>
+          ></Iframe>
         )}
       </End>
     </Wrapper>
