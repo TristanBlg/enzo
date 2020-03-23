@@ -25,7 +25,7 @@ const navResponsiveActive = css`
   transform: translate3d(0%, 0, 0);
   box-shadow: -100px 0 100px rgba(0, 0, 0, 0.4);
 `
-const Nav = styled.ul<{ isActive: boolean; isResponsive: boolean }>`
+const Nav = styled.ul<{ isActive: boolean }>`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -33,8 +33,11 @@ const Nav = styled.ul<{ isActive: boolean; isResponsive: boolean }>`
   margin: 0;
   padding: 0;
 
-  ${props => props.isResponsive && navResponsive}
-  ${props => props.isResponsive && props.isActive && navResponsiveActive}
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.MEDIUM}) {
+    ${navResponsive}
+
+    ${props => props.isActive && navResponsiveActive}
+  }
 `
 
 const itemActive = css`
@@ -85,11 +88,7 @@ export const Navigation = ({ items, ...props }: NavigationProps) => {
   }
 
   return (
-    <Nav
-      {...props}
-      isResponsive={isNavResponsive}
-      isActive={isNavResponsiveActive}
-    >
+    <Nav {...props} isActive={isNavResponsiveActive}>
       {items.map((item, key) => (
         <Item
           key={key}

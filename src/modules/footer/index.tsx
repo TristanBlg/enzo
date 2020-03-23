@@ -13,7 +13,7 @@ const Wrapper = styled(Container)`
   grid-template-columns: 1fr 1fr;
   padding: 5.625rem 2rem 3.125rem;
 
-  @media screen and (max-width: 56rem) {
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.MEDIUM}) {
     grid-template-columns: 1fr;
   }
 `
@@ -22,7 +22,7 @@ const Column = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 
-  @media screen and (max-width: 56rem) {
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.MEDIUM}) {
     grid-template-columns: 1fr;
 
     &:not(:last-child) {

@@ -9,6 +9,7 @@ import {
 } from "../../components"
 import { NavContext } from "../../helpers/navContext"
 import { HEADER_HEIGHT } from "../"
+import { theme } from "../../theme"
 
 export const NAV_HEIGHT = "5rem"
 
@@ -71,12 +72,17 @@ export const Nav = () => {
 
   useEffect(() => {
     const watchMedia = () => {
-      if (window.matchMedia("(max-width: 56rem)").matches) {
+      if (
+        window.matchMedia(`screen and (max-width: ${theme.BREAKPOINTS.MEDIUM})`)
+          .matches
+      ) {
         setIsNavResponsive(true)
       } else {
         setIsNavResponsive(false)
       }
     }
+
+    watchMedia()
 
     window.addEventListener("resize", watchMedia)
 
