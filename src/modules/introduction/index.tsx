@@ -1,5 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "styled-components"
 
 import {
@@ -29,38 +31,22 @@ const Video = styled(ResponsiveEmbed)`
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      markdownRemark(frontmatter: { id: { eq: "introduction" } }) {
-        html
+      mdx(frontmatter: { title: { eq: "introduction" } }) {
+        body
       }
     }
   `)
-  console.log(data)
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { html } = markdownRemark
+
+  const { mdx } = data
+  const shortcodes = { Video, Text }
 
   return (
     <Wrapper id="introduction">
       <SmallContainer>
         <Title>INTRODUCTION</Title>
-        <Text>
-          <strong>Sed ut perspiciatis</strong> unde omnis iste natus error sit
-          voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-          ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo.
-        </Text>
-        <Video
-          title="Concert de Johnny Mafia à Paris"
-          src="https://www.youtube.com/embed/7JTNXsxKIpk"
-        />
-        <Text>
-          <strong>Sed ut perspiciatis</strong> unde omnis iste natus error sit
-          voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-          ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo. <strong>Nemo enim ipsam voluptatem</strong> quia
-          voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-          magni dolores eos qui ratione voluptatem sequi nesciunt.
-        </Text>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </MDXProvider>
       </SmallContainer>
     </Wrapper>
   )
