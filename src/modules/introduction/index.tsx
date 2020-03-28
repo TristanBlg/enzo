@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import {
@@ -25,7 +26,18 @@ const Video = styled(ResponsiveEmbed)`
   margin-bottom: 1.875rem;
 `
 
-export const Introduction = () => {
+export default () => {
+  const data = useStaticQuery(graphql`
+    {
+      markdownRemark(frontmatter: { id: { eq: "introduction" } }) {
+        html
+      }
+    }
+  `)
+  console.log(data)
+  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { html } = markdownRemark
+
   return (
     <Wrapper id="introduction">
       <SmallContainer>
@@ -48,6 +60,7 @@ export const Introduction = () => {
           voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
           magni dolores eos qui ratione voluptatem sequi nesciunt.
         </Text>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </SmallContainer>
     </Wrapper>
   )
