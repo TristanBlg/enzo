@@ -34,7 +34,7 @@ const Box = styled.div`
       position: absolute;
       bottom: 0;
       left: calc(50% - 1rem);
-      height 1px;
+      height 0.0625rem;
       width: 2rem;
       background-color: #2d3436;
     }

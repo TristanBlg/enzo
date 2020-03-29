@@ -22,7 +22,7 @@ export const SocialMedia = () => {
           aria-label="Ouvrir la page Instagram d'Enzo Boulanger"
           href="https://www.instagram.com/enzo.boulanger"
         >
-          <Instagram />
+          <Instagram aria-hidden="true" />
         </Link>
       </li>
       <li>
@@ -30,7 +30,7 @@ export const SocialMedia = () => {
           aria-label="Ouvrir la page Facebook d'Enzo Boulanger"
           href="https://www.facebook.com/enzoboulanger89"
         >
-          <Facebook />
+          <Facebook aria-hidden="true" />
         </Link>
       </li>
       <li>
@@ -38,7 +38,7 @@ export const SocialMedia = () => {
           aria-label="Ouvrir la page Youtube d'Enzo Boulanger"
           href="https://www.youtube.com/channel/UCjt6kbGODByC5xsiVto9LJA"
         >
-          <Youtube />
+          <Youtube aria-hidden="true" />
         </Link>
       </li>
       <li>
@@ -46,7 +46,7 @@ export const SocialMedia = () => {
           aria-label="Ouvrir la page Spotify de Johnny Mafia"
           href="https://open.spotify.com/artist/7iM6UV8wXD4l2bS2QxdOPY"
         >
-          <Spotify />
+          <Spotify aria-hidden="true" />
         </Link>
       </li>
     </List>

@@ -16,7 +16,7 @@ export const NAV_HEIGHT = "5rem"
 const activeNav = css`
   background-color: #ffffff;
   color: #000000;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 0.0625rem solid #eeeeee;
 `
 const fixedNav = css`
   position: fixed;
@@ -46,7 +46,7 @@ const Wrapper = styled.nav<NavProps>`
   height: ${NAV_HEIGHT};
   z-index: 999;
   color: #ffffff;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s, color 0.3s;
 
   ${props => props.isActive && activeNav}

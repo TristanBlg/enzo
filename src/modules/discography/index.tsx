@@ -46,7 +46,6 @@ const Bloc = styled.div<{ background: string }>`
   background: url(${props => props.background}) no-repeat center center / cover;
   padding-top: 100%;
   cursor: pointer;
-  transition: filter 0.3s ease-in-out;
 `
 
 const Title = styled(_Title)`

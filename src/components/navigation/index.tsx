@@ -7,9 +7,9 @@ import { scrollBy } from "../../helpers/scrollBy"
 const navResponsive = css`
   position: fixed;
   top: 0;
-  min-width: 280px;
+  min-width: 17.5rem;
   width: 80%;
-  box-shadow: -100px 0 100px rgba(0, 0, 0, 0);
+  box-shadow: -6.25rem 0 6.25rem rgba(0, 0, 0, 0);
   right: 0;
   padding: 4rem 4rem 4rem 0;
   background: white;
@@ -23,7 +23,7 @@ const navResponsive = css`
 `
 const navResponsiveActive = css`
   transform: translate3d(0%, 0, 0);
-  box-shadow: -100px 0 100px rgba(0, 0, 0, 0.4);
+  box-shadow: -6.25rem 0 6.25rem rgba(0, 0, 0, 0.4);
 `
 const Nav = styled.ul<{ isActive: boolean }>`
   display: flex;
