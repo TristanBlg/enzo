@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useContext } from "react"
 import styled from "styled-components"
 
-// @ts-ignore
-import background from "./background.jpg"
 import { NavContext } from "../../helpers/navContext"
 import { getElementPosition } from "../../helpers/position"
 
@@ -14,7 +12,7 @@ const Wrapper = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url(${background}) no-repeat left bottom / cover;
+  background: #2d3436;
   height: ${HEADER_HEIGHT};
   color: #ffffff;
   padding: 0 2rem;

@@ -38,18 +38,18 @@ export const Introduction = () => {
           du département puis en 2014,{" "}
           <strong>j'intègre la classe de TMD</strong> au lycée Carnot à Dijon
           (21) et m’inscris parallèlement au CRR en classe de Jazz. L’année de
-          ma terminale, je <strong>valide mon entrée en COP Jazz</strong> (
-          cycle d’orientation professionnel ). Le Bac en poche, je tente le
-          concours d’entrée au{" "}
-          <strong>CRR de Paris en musiques actuelles</strong> : le résultat est
-          positif et j’y suis <strong>admis à l’âge de 17 ans</strong>&nbsp;!
+          ma terminale, je <strong>valide mon entrée en COP Jazz</strong> (cycle
+          d’orientation professionnel). Le Bac en poche, je tente le concours
+          d’entrée au <strong>CRR de Paris en musiques actuelles</strong>: le
+          résultat est positif et j’y suis{" "}
+          <strong>admis à l’âge de 17 ans</strong>&nbsp;!
           <br />
           Je suis la <strong>formation du Diplôme Etudes Musicales</strong>{" "}
           pendant 1 an où j’ai pu <strong>recevoir l’enseignement</strong> de
-          musiciens tels que <strong>Jean-Michel Kajdan</strong> ( Michel Jonaz,
-          Joe Dassin, Didier Lokcwood ), <strong>Emiliano Turi</strong> ( Jeanne
-          Added, Eiffel.. ),
-          <strong>Tao Elrich</strong> ( Panam Panic, Ishkero.. ) etc…
+          musiciens tels que <strong>Jean-Michel Kajdan</strong> (Michel Jonaz,
+          Joe Dassin, Didier Lokcwood), <strong>Emiliano Turi</strong> (Jeanne
+          Added, Eiffel...), <strong>Tao Elrich</strong> (Panam Panic,
+          Ishkero...), etc.
           <br />
           Je <strong>finalise mon DEM</strong> au CRD d’Auxerre que j’obtiens en
           2019.
@@ -65,13 +65,13 @@ export const Introduction = () => {
           <strong>enregistrer deux EP 5 titres</strong>.
           <br />
           Après avoir joué dans un groupe de reprises pendant deux ans, je
-          rejoins le groupe <strong>Johnny Mafia</strong> ( garage/punk/rock )
+          rejoins le groupe <strong>Johnny Mafia</strong> (garage/punk/rock)
           avec lequel j’intègre le <strong>monde professionnel</strong> en
-          parcourant de <strong>très nombreuses scènes françaises</strong> ( la
+          parcourant de <strong>très nombreuses scènes françaises</strong> (la
           Vapeur, la Maroquinerie, le Brise Glace, le Transbordeur, le Trabendo,
-          le Café Charbon, le Cabaret Vert, le Rockabylette ){" "}
-          <strong>et internationales</strong>( le Paléo festival, le Great
-          Escape festival à Brighton, l’Eurosonic au Pays-Bas, FME au canada… ).
+          le Café Charbon, le Cabaret Vert, le Rockabylette){" "}
+          <strong>et internationales</strong> (le Paléo Festival, le Great
+          Escape Festival à Brighton, l’Eurosonic au Pays-Bas, FME au Canada…).
         </Text>
       </SmallContainer>
     </Wrapper>
