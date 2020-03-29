@@ -23,12 +23,11 @@ module.exports = {
       },
     },
     "gatsby-plugin-offline",
-    // {
-    //   resolve: "gatsby-plugin-google-analytics",
-    //   options: {
-    //     // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-    //     trackingId: "UA-XXXXXXXXX-X",
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-162093907-1",
+      },
+    },
   ],
 }
