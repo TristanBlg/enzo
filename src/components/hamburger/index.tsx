@@ -43,7 +43,10 @@ export const Hamburger = () => {
   } = useContext(NavContext)
 
   return (
-    <Button onClick={() => setIsNavResponsiveActive(!isNavResponsiveActive)}>
+    <Button
+      aria-label="Ouvrir le menu"
+      onClick={() => setIsNavResponsiveActive(!isNavResponsiveActive)}
+    >
       <Bar isNavActive={isNavActive}></Bar>
       <Bar isNavActive={isNavActive}></Bar>
       <Bar isNavActive={isNavActive}></Bar>

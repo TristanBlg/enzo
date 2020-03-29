@@ -92,7 +92,12 @@ export const Nav = () => {
   }, [])
 
   return (
-    <Wrapper isActive={isNavActive} isFixed={isNavFixed}>
+    <Wrapper
+      role="navigation"
+      aria-label="Menu Principal"
+      isActive={isNavActive}
+      isFixed={isNavFixed}
+    >
       <Container>
         <Logo />
         {isNavResponsive && <Hamburger />}

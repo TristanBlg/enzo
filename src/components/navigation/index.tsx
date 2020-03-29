@@ -54,7 +54,7 @@ interface ItemProps {
 const itemResponsive = css`
   color: #111111;
   margin-left: 0;
-  font-siwe: 2rem;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 `
 

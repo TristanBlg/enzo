@@ -74,7 +74,7 @@ export const Header = () => {
 
   return (
     <>
-      <Wrapper ref={WrapperRef}>
+      <Wrapper ref={WrapperRef} role="banner">
         <Name>ENZO BOULANGER</Name>
         <Description>Batteur, bassiste et compositeur</Description>
       </Wrapper>

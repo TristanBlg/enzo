@@ -36,7 +36,10 @@ export const Introduction = () => {
           ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
           dicta sunt explicabo.
         </Text>
-        <Video src="https://www.youtube.com/embed/7JTNXsxKIpk" />
+        <Video
+          title="Concert de Johnny Mafia à Paris"
+          src="https://www.youtube.com/embed/7JTNXsxKIpk"
+        />
         <Text>
           <strong>Sed ut perspiciatis</strong> unde omnis iste natus error sit
           voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque

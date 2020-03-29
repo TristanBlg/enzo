@@ -18,22 +18,34 @@ export const SocialMedia = () => {
   return (
     <List>
       <li>
-        <Link href="https://www.instagram.com/enzo.boulanger">
+        <Link
+          aria-label="Ouvrir la page Instagram d'Enzo Boulanger"
+          href="https://www.instagram.com/enzo.boulanger"
+        >
           <Instagram />
         </Link>
       </li>
       <li>
-        <Link href="https://www.facebook.com/enzoboulanger89">
+        <Link
+          aria-label="Ouvrir la page Facebook d'Enzo Boulanger"
+          href="https://www.facebook.com/enzoboulanger89"
+        >
           <Facebook />
         </Link>
       </li>
       <li>
-        <Link href="https://www.youtube.com/channel/UCjt6kbGODByC5xsiVto9LJA">
+        <Link
+          aria-label="Ouvrir la page Youtube d'Enzo Boulanger"
+          href="https://www.youtube.com/channel/UCjt6kbGODByC5xsiVto9LJA"
+        >
           <Youtube />
         </Link>
       </li>
       <li>
-        <Link href="https://open.spotify.com/artist/7iM6UV8wXD4l2bS2QxdOPY">
+        <Link
+          aria-label="Ouvrir la page Spotify de Johnny Mafia"
+          href="https://open.spotify.com/artist/7iM6UV8wXD4l2bS2QxdOPY"
+        >
           <Spotify />
         </Link>
       </li>

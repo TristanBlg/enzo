@@ -44,29 +44,34 @@ const Text = styled(_Text)`
 `
 
 export const Footer = () => {
+  const date = new Date().getFullYear()
+
   return (
-    <Wrapper as="footer" id="footer">
+    <Wrapper as="footer" id="footer" role="contentinfo">
       <Column>
         <Box>
-          <Subtitle>GET IN TOUCH</Subtitle>
+          <Subtitle>CONTACT</Subtitle>
           <Text>
-            <Text as="a" href="mailto:enzo.boulanger@gmail.com">
-              enzo.boulanger@gmail.com
+            <Text as="a" href="mailto:boulangerenzo@gmail.com">
+              boulangerenzo@gmail.com
             </Text>
           </Text>
         </Box>
       </Column>
       <Column>
         <Box>
-          <Subtitle>SOCIAL MEDIA</Subtitle>
+          <Subtitle>RÉSEAUX SOCIAUX</Subtitle>
           <SocialMedia />
         </Box>
         <Box>
           <Subtitle>COPYRIGHTS</Subtitle>
-          <Text>© Enzo BOULANGER 2020, Johnny Mafia</Text>
+          <Text>© Enzo BOULANGER {date}, Johnny Mafia</Text>
           <Text>
-            Build with &#128154; by{" "}
-            <a href="https://fr.linkedin.com/in/boulangertristan">
+            Fait avec &#128154; par{" "}
+            <a
+              aria-label="Ouvrir la page LinkedIn de Tristan Boulanger"
+              href="https://fr.linkedin.com/in/boulangertristan"
+            >
               <strong>Tristan BOULANGER</strong>
             </a>
           </Text>

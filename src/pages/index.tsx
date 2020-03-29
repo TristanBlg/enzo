@@ -22,6 +22,12 @@ export default () => (
       <Helmet>
         <meta charSet="utf-8" />
         <title>Enzo Boulanger - Batteur et compositeur</title>
+        <meta
+          name="description"
+          content="Site personnel d'Enzo Boulanger. Batteur, bassiste et compositeur. Membre du groupe Johnny Mafia."
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <html lang="fr" />
       </Helmet>
       <NavProvider>
         <Nav />

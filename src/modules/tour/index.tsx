@@ -20,7 +20,7 @@ const Title = styled(_Title)`
 `
 
 const Subtitle = styled(_Subtitle)`
-  font-siwe: 1rem;
+  font-size: 1rem;
 `
 
 const Box = styled.div`

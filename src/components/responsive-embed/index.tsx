@@ -18,13 +18,15 @@ const Iframe = styled.iframe`
 
 type Props = {
   src: string
+  title: string
 }
 
-export const ResponsiveEmbed = ({ src, ...props }: Props) => {
+export const ResponsiveEmbed = ({ src, title, ...props }: Props) => {
   return (
     <Wrapper {...props}>
       <Iframe
         src={src}
+        title={title}
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         frameBorder="0"
