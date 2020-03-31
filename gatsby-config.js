@@ -30,5 +30,11 @@ module.exports = {
         trackingId: "UA-162093907-1",
       },
     },
+    {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        https: true,
+      },
+    },
   ],
 }
