@@ -20,14 +20,27 @@ export default () => (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Helmet>
+        <html lang="fr" />
         <meta charSet="utf-8" />
         <title>Enzo Boulanger - Batteur professionnel</title>
         <meta
           name="description"
-          content="Site personnel d'Enzo Boulanger. Batteur, bassiste et compositeur. Membre du groupe Johnny Mafia."
+          content="Site personnel d'Enzo Boulanger. Batteur professionnel et membre du groupe Johnny Mafia."
         />
         <meta name="theme-color" content="#ffffff" />
-        <html lang="fr" />
+        <meta
+          property="og:title"
+          content="Enzo Boulanger - Batteur professionnel"
+        />
+        <meta
+          property="og:description"
+          content="Site personnel d'Enzo Boulanger. Batteur professionnel et membre du groupe Johnny Mafia."
+        />
+        <meta
+          property="og:image"
+          content="https://enzoboulanger.com/thumbnail.jpg"
+        />
+        <meta property="og:url" content="https://enzoboulanger.com" />
       </Helmet>
       <NavProvider>
         <Nav />

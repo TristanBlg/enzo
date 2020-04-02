@@ -7,6 +7,8 @@ import {
   Container,
   SocialMedia,
 } from "../../components"
+// @ts-ignore
+import songkick from "./songkick.png"
 
 const Wrapper = styled(Container)`
   display: grid;
@@ -66,6 +68,11 @@ export const Footer = () => {
         <Box>
           <Subtitle>COPYRIGHTS</Subtitle>
           <Text>© Enzo BOULANGER {date}, Johnny Mafia</Text>
+          <Text>
+            <strong>Concerts</strong>
+            <br />
+            <img src={songkick} width="100" />
+          </Text>
           <Text>
             Fait avec &#128154; par{" "}
             <a

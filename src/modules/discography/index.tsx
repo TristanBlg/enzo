@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import {
@@ -112,21 +112,6 @@ const albums: Albums = [
 
 export const Discography = () => {
   const [selectedAlbum, setSelectedAlbum] = useState(albums[0])
-
-  // useEffect(() => {
-  //   const API_KEY = "7113374"
-  //   const ARTIST_ID = "7113374"
-
-  //   fetch(
-  //     `https://api.songkick.com/api/3.0/artists/${ARTIST_ID}/calendar.json?apikey=${API_KEY}`
-  //   ).then(function(response) {
-  //     if (response.ok) {
-  //       console.log(response)
-  //     } else {
-  //       console.log("Mauvaise réponse du réseau", response)
-  //     }
-  //   })
-  // }, [])
 
   const handleClick = (id: string) => {
     const album: Album = albums.find(album => album.id === id)

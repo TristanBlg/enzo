@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
 import { Title as _Title, Text, Subtitle as _Subtitle } from "../../components"
@@ -41,48 +41,62 @@ const Box = styled.div`
   }
 `
 
-type Concerts = Array<{
+type Concert = {
   id: string
   date: string
   place: string
-  name: string
-}>
-
-const concerts: Concerts = [
-  {
-    id: "1",
-    date: "JEUDI 2 AVRIL",
-    place: "La lune des pirates, Amiens",
-    name: "Johnny Mafia",
-  },
-  {
-    id: "2",
-    date: "VENDREDI 17 AVRIL",
-    place: "Le Poulpe,  Reignier-Esery",
-    name: "Johnny Mafia",
-  },
-  {
-    id: "3",
-    date: "VENDREDI 24 AVRIL",
-    place: "L'Empreinte, Savigny le Temple",
-    name: "Johnny Mafia w/ Pogo Car Crash Control",
-  },
-  {
-    id: "4",
-    date: "SAMEDI 16 MAI",
-    place: "L'Echonova, Saint-Avé",
-    name: "Johnny Mafia",
-  },
-]
+  band: string
+}
 
 export const Tour = () => {
+  const [concerts, setConcerts]: [Concert[], Function] = useState([])
+
+  useEffect(() => {
+    fetch(
+      `https://api.songkick.com/api/3.0/artists/${process.env.GATSBY_ARTIST_ID}/calendar.json?apikey=${process.env.GATSBY_API_KEY}`
+    )
+      .then(function(response) {
+        if (response.ok) {
+          return response.json()
+        } else {
+          throw new Error(response.statusText)
+        }
+      })
+      .then(function(data) {
+        const events = data.resultsPage.results.event.map(
+          (concert): Concert => {
+            return {
+              id: concert.id.toString(),
+              date: new Date(concert.start.date)
+                .toLocaleDateString("fr", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+                .toLocaleUpperCase(),
+              band: concert.performance
+                .map(band => band.displayName)
+                .join(", "),
+              place: `${concert.venue.displayName}, ${concert.location.city}`,
+            }
+          }
+        )
+
+        setConcerts(events)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }, [])
+
   return (
     <Wrapper id="tour">
       {concerts.map(concert => (
         <Box key={concert.id}>
           <Title>{concert.date}</Title>
           <Subtitle>{concert.place}</Subtitle>
-          <Text>{concert.name}</Text>
+          <Text>{concert.band}</Text>
         </Box>
       ))}
     </Wrapper>
