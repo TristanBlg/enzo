@@ -31,47 +31,60 @@ export const Introduction = () => {
       <SmallContainer>
         <Title>BIOGRAPHIE</Title>
         <Text>
-          J’ai commencé à <strong>jouer de la batterie à l’âge de 5 ans</strong>{" "}
-          grâce à mon père, Valéry Boulanger, professeur de basse et excellent
-          pédagogue, à l’école musiques actuelles « Rock and Swing » à Sens
-          (89). Je poursuis mes études musicales dans différents conservatoires
-          du département puis en 2014,{" "}
-          <strong>j'intègre la classe de TMD</strong> au lycée Carnot à Dijon
-          (21) et m’inscris parallèlement au CRR en classe de Jazz. L’année de
-          ma terminale, je <strong>valide mon entrée en COP Jazz</strong> (cycle
-          d’orientation professionnel). Le Bac en poche, je tente le concours
-          d’entrée au <strong>CRR de Paris en musiques actuelles</strong>: le
-          résultat est positif et j’y suis{" "}
-          <strong>admis à l’âge de 17 ans</strong>&nbsp;!
+          Après avoir suivi un{" "}
+          <strong>cursus Jazz et Musiques Actuelles</strong> au conservatoire,
+          j’obtiens mon <strong>Diplôme d’Etude Musicale</strong>.
           <br />
-          Je suis la <strong>formation du Diplôme Etudes Musicales</strong>{" "}
-          pendant 1 an où j’ai pu <strong>recevoir l’enseignement</strong> de
-          musiciens tels que <strong>Jean-Michel Kajdan</strong> (Michel Jonaz,
-          Joe Dassin, Didier Lokcwood), <strong>Emiliano Turi</strong> (Jeanne
-          Added, Eiffel...), <strong>Tao Elrich</strong> (Panam Panic,
-          Ishkero...), etc.
+          <strong>Batteur professionnel</strong>, je tourne actuellement avec le
+          groupe « <strong>Johnny Mafia</strong> » (&nbsp;punk/rock&nbsp;) en
+          France ainsi qu’à l’étranger (&nbsp;Angleterre, Belgique, Pays-Bas,
+          Canada, etc.&nbsp;). J’ai eu l’occasion de participer à de nombreux
+          festivals comme le <strong>Paleo Festival</strong> (Suisse),{" "}
+          <strong>FME</strong> (Canada) et le <strong>Cabaret Vert</strong>{" "}
+          (France), ce qui m’a permis de partager la scène avec des groupes
+          comme <strong>Les Wampas</strong>, <strong>Eiffel</strong> et{" "}
+          <strong>The Cure</strong>.
           <br />
-          Je <strong>finalise mon DEM</strong> au CRD d’Auxerre que j’obtiens en
-          2019.
+          J'ai également participer à des <strong>
+            émissions télévisées
+          </strong>{" "}
+          (&nbsp;FR3 Bourgogne Franche-Comté&nbsp;) et des{" "}
+          <strong>interviews</strong> (&nbsp;FIP, la Grosse Radio&nbsp;).
+          <br />
+          Le 2ème album du groupe, enregistré et mixé par{" "}
+          <strong>Jim Diamond</strong> (White Stripes, Sonics, …) a fait l’objet
+          de nombreux articles dans les magazines comme «{" "}
+          <strong>Rolling Stones France</strong> », «{" "}
+          <strong>Guitar Part Magazine</strong> », «{" "}
+          <strong>Rock N Folk</strong> », « <strong>Télérama</strong> », etc.
         </Text>
         <Video
           title="Concert de Johnny Mafia à Paris"
           src="https://www.youtube.com/embed/7JTNXsxKIpk"
         />
         <Text>
-          Mon <strong>expérience scénique a commencé à l’âge de 9 ans</strong>{" "}
-          avec le groupe VEB Project formé par mon père qui me permettra entre
-          2007 et 2012 de faire <strong>une centaine de concerts</strong> et d’
-          <strong>enregistrer deux EP 5 titres</strong>.
+          J’ai <strong>commencé la batterie à l’âge de 5 ans</strong> dans une
+          école associative. En 2014, j’intègre la classe de TMD au lycée Carnot
+          (Dijon) et m’inscris parallèlement au{" "}
+          <strong>Conservatoire à Rayonnement Régional de Dijon</strong> en
+          cursus Jazz.
           <br />
-          Après avoir joué dans un groupe de reprises pendant deux ans, je
-          rejoins le groupe <strong>Johnny Mafia</strong> (garage/punk/rock)
-          avec lequel j’intègre le <strong>monde professionnel</strong> en
-          parcourant de <strong>très nombreuses scènes françaises</strong> (la
-          Vapeur, la Maroquinerie, le Brise Glace, le Transbordeur, le Trabendo,
-          le Café Charbon, le Cabaret Vert, le Rockabylette){" "}
-          <strong>et internationales</strong> (le Paléo Festival, le Great
-          Escape Festival à Brighton, l’Eurosonic au Pays-Bas, FME au Canada…).
+          En 2017, j’obtiens mon entrée en <strong>COP Jazz</strong>{" "}
+          (&nbsp;Cycle d’Orientation Professionnel&nbsp;).
+          <br />
+          L’année suivante, à l’âge de 17 ans, je réussis le concours d’entrée
+          au <strong>Conservatoire à Rayonnement Régional de Paris</strong> et
+          reçoit notamment, l’enseignement de{" "}
+          <strong>Jean-Michel Kajdan</strong> (&nbsp;Michel Jonaz, Didier
+          Lockwood&nbsp;) et d'<strong>Emiliano Turi</strong> (&nbsp;Jeanne
+          Added, Eiffel&nbsp;).
+        </Text>
+        <Text>
+          Durant mon parcours, j’ai eu l’occasion de participer à des
+          stages/masterclasses avec <strong>Peter Erskine</strong>,{" "}
+          <strong>Damien Schmitt</strong>, <strong>Franck Agulhon</strong>,{" "}
+          <strong>Nicolas Bastos</strong> (Dagoba) et de{" "}
+          <strong>Farid Medjane</strong> (Trust).
         </Text>
       </SmallContainer>
     </Wrapper>
