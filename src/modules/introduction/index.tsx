@@ -50,8 +50,8 @@ export const Introduction = () => {
           <strong>Paleo Festival</strong> (Suisse), au <strong>FME</strong>{" "}
           (Canada) et au <strong>Cabaret Vert</strong> (France), ce qui m’a
           permis de partager la scène avec des groupes comme{" "}
-          <strong>Les Wampas</strong>, <strong>Eiffel</strong> et{" "}
-          <strong>The Cure</strong>.
+          <strong>Les Wampas</strong>, <strong>Eiffel</strong>,{" "}
+          <strong>The Cure</strong>, ...
           <br />
           J'ai également participé à des <strong>
             émissions télévisées
@@ -64,7 +64,7 @@ export const Introduction = () => {
           nombreux articles dans des magazines comme «{" "}
           <strong>Rolling Stones France</strong> », «{" "}
           <strong>Guitar Part Magazine</strong> », «{" "}
-          <strong>Rock N Folk</strong> » et « <strong>Télérama</strong> »
+          <strong>Rock N Folk</strong> », « <strong>Télérama</strong> », ...
         </Text>
         <Video
           title="Concert de Johnny Mafia à Paris"
@@ -95,7 +95,7 @@ export const Introduction = () => {
         </Text>
         <ProOrca src={proOrca} alt="pro-orca logo" />
         <Text>
-          Je suis <strong>sponsorisé</strong> par la marque de baguette{" "}
+          Je joue avec des baguettes de la marque française{" "}
           <strong>Proorca</strong> depuis 2018.
         </Text>
       </SmallContainer>
