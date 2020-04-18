@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-import { Title as _Title, Text, Subtitle as _Subtitle } from "../../components"
+import { Title as _Title, Subtitle, Text } from "../../components"
 
 const Wrapper = styled.section`
   padding-top: 4.875rem;
@@ -14,12 +14,16 @@ const Wrapper = styled.section`
 `
 
 const Title = styled(_Title)`
+  margin-bottom: 1.125rem;
+`
+
+const ConcertTitle = styled(_Title)`
   margin-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: 700;
 `
 
-const Subtitle = styled(_Subtitle)`
+const ConcertSubtitle = styled(Subtitle)`
   font-size: 1rem;
 `
 
@@ -92,10 +96,11 @@ export const Tour = () => {
 
   return (
     <Wrapper id="tour">
+      <Title>CONCERTS</Title>
       {concerts.map(concert => (
         <Box key={concert.id}>
-          <Title>{concert.date}</Title>
-          <Subtitle>{concert.place}</Subtitle>
+          <ConcertTitle>{concert.date}</ConcertTitle>
+          <ConcertSubtitle>{concert.place}</ConcertSubtitle>
           <Text>{concert.band}</Text>
         </Box>
       ))}
