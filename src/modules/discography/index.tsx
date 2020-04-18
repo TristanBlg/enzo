@@ -6,13 +6,9 @@ import {
   Text as _Text,
   Subtitle as _Subtitle,
 } from "../../components"
-// @ts-ignore
 import spiritCover from "./spirit.jpg"
-// @ts-ignore
 import eyeballCover from "./eyeball.jpg"
-// @ts-ignore
 import insteadCover from "./instead.jpg"
-// @ts-ignore
 import princesdelamourCover from "./princesdelamour.jpg"
 
 const Wrapper = styled.section`
