@@ -73,7 +73,7 @@ export const Nav = () => {
   useEffect(() => {
     const watchMedia = () => {
       if (
-        window.matchMedia(`screen and (max-width: ${theme.BREAKPOINTS.MEDIUM})`)
+        window.matchMedia(`screen and (max-width: ${theme.BREAKPOINTS.sm})`)
           .matches
       ) {
         setIsNavResponsive(true)

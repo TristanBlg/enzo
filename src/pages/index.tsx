@@ -12,6 +12,7 @@ import {
 } from "../modules"
 import { globalStyles, theme } from "../theme"
 import { NavProvider } from "../helpers/navContext"
+import { BreakpointProvider } from "../helpers/breakpointContext"
 
 const GlobalStyle = createGlobalStyle`${globalStyles}`
 
@@ -42,16 +43,18 @@ export default () => (
         />
         <meta property="og:url" content="https://enzoboulanger.com" />
       </Helmet>
-      <NavProvider>
-        <Nav />
-        <Header />
-        <main role="main">
-          <Introduction />
-          <Discography />
-          <Tour />
-        </main>
-        <Footer />
-      </NavProvider>
+      <BreakpointProvider queries={theme.QUERIES}>
+        <NavProvider>
+          <Nav />
+          <Header />
+          <main role="main">
+            <Introduction />
+            <Discography />
+            <Tour />
+          </main>
+          <Footer />
+        </NavProvider>
+      </BreakpointProvider>
     </ThemeProvider>
   </>
 )

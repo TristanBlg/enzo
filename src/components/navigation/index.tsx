@@ -33,7 +33,7 @@ const Nav = styled.ul<{ isActive: boolean }>`
   margin: 0;
   padding: 0;
 
-  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.MEDIUM}) {
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.sm}) {
     ${navResponsive}
 
     ${props => props.isActive && navResponsiveActive}

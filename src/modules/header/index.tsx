@@ -26,7 +26,7 @@ const Name = styled.h1`
   margin: 0;
   text-transform: uppercase;
 
-  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.MEDIUM}) {
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.sm}) {
     font-size: 2.5rem;
   }
 `
@@ -38,7 +38,7 @@ const Description = styled.h2`
   margin: 0;
   text-transform: uppercase;
 
-  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.MEDIUM}) {
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.sm}) {
     font-size: 1rem;
   }
 `

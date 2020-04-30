@@ -41,7 +41,7 @@ export const Introduction = () => {
         <Text>
           Après avoir suivi un{" "}
           <strong>cursus Jazz et Musiques Actuelles</strong> au conservatoire,
-          j’obtiens mon <strong>Diplôme d’Etude Musicale</strong>.
+          j’obtiens mon <strong>Diplôme d’Etudes Musicales</strong>.
           <br />
           <strong>Batteur professionnel</strong>, je tourne actuellement avec le
           groupe « <strong>Johnny Mafia</strong> » (punk/rock) en France ainsi
