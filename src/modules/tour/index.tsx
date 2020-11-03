@@ -4,8 +4,7 @@ import styled from "styled-components"
 import { Title as _Title, Subtitle, Text } from "../../components"
 
 const Wrapper = styled.section`
-  padding-top: 4.875rem;
-  padding-bottom: 3rem;
+  padding: 4.875rem 2rem 3rem;
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
