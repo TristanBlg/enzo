@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 
 import { NavContext } from "../../helpers/navContext"
@@ -9,21 +9,26 @@ const navResponsive = css`
   top: 0;
   min-width: 17.5rem;
   width: 80%;
-  box-shadow: -6.25rem 0 6.25rem rgba(0, 0, 0, 0);
+  height: 100vh;
   right: 0;
   padding: 4rem 4rem 4rem 0;
   background: white;
   color: #111 !important;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
   align-items: flex-end;
   transform: translate3d(100%, 0, 0);
-  transition: transform 0.3s ease-in-out;
+  transition: 0.3s transform ease-in-out;
 `
 const navResponsiveActive = css`
   transform: translate3d(0%, 0, 0);
-  box-shadow: -6.25rem 0 6.25rem rgba(0, 0, 0, 0.4);
+  transition: 0.3s transform 0.2s ease-in-out;
+  opacity: 1;
+`
+const backgroundResponsiveActive = css`
+  transform: translate3d(0%, 0, 0);
+  transition: 0.2s opacity ease-in-out;
+  opacity: 1;
 `
 const Nav = styled.ul<{ isActive: boolean }>`
   display: flex;
@@ -37,6 +42,21 @@ const Nav = styled.ul<{ isActive: boolean }>`
     ${navResponsive}
 
     ${props => props.isActive && navResponsiveActive}
+  }
+`
+
+const Background = styled.div<{ isActive: boolean }>`
+  @media screen and (max-width: ${props => props.theme.BREAKPOINTS.sm}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: 0.2s opacity 0.3s ease-in-out, 0s transform 0.5s;
+    ${props => props.isActive && backgroundResponsiveActive}
   }
 `
 
@@ -61,7 +81,7 @@ const itemResponsive = css`
 const Item = styled.li<ItemProps>`
   margin-left: 2rem;
   cursor: pointer;
-  color: ${props => (props.isNavActive ? "#666666" : "#ffffff")};
+  color: ${props => (props.isNavActive ? "#111111" : "#ffffff")};
 
   ${props => props.isNavActive && props.isItemActive && itemActive}
   ${props => props.isResponsive && itemResponsive}
@@ -81,25 +101,48 @@ export const Navigation = ({ items, ...props }: NavigationProps) => {
     setIsNavResponsiveActive,
   } = useContext(NavContext)
 
-  const handleClick = id => {
+  const navRef = useRef(null)
+
+  const handleClick = (id: string) => {
     if (isNavResponsive) setIsNavResponsiveActive(!isNavResponsiveActive)
 
     scrollBy(id, 80)
   }
 
+  const handleClickOutside = (event: MouseEvent) => {
+    var isClickInsideElement = navRef.current.contains(event.target)
+
+    if (!isClickInsideElement) {
+      if (isNavResponsive) {
+        setIsNavResponsiveActive(!isNavResponsiveActive)
+      }
+    }
+  }
+  useEffect(() => {
+    if (isNavResponsiveActive) {
+      document.addEventListener("click", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside)
+    }
+  }, [isNavResponsiveActive])
+
   return (
-    <Nav {...props} isActive={isNavResponsiveActive}>
-      {items.map((item, key) => (
-        <Item
-          key={key}
-          isResponsive={isNavResponsive}
-          isNavActive={isNavActive}
-          isItemActive={false}
-          onClick={() => handleClick(`#${item.id}`)}
-        >
-          {item.text}
-        </Item>
-      ))}
-    </Nav>
+    <Background isActive={isNavResponsiveActive}>
+      <Nav ref={navRef} {...props} isActive={isNavResponsiveActive}>
+        {items.map((item, key) => (
+          <Item
+            key={key}
+            isResponsive={isNavResponsive}
+            isNavActive={isNavActive}
+            isItemActive={false}
+            onClick={() => handleClick(`#${item.id}`)}
+          >
+            {item.text}
+          </Item>
+        ))}
+      </Nav>
+    </Background>
   )
 }

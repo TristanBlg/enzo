@@ -20,10 +20,10 @@ const Button = styled.button<{ isNavResponsiveActive: boolean }>`
   border: 0;
   position: relative;
   cursor: pointer;
-  z-index: 1;
+  // z-index: 1;
 
   ${Bar} {
-    transition: 0.3s width 0.2s ease-in-out;
+    // transition: 0.3s width 0.3s ease-in-out;
     &:nth-child(1) {
       top: 0.625rem;
       width: ${props => (props.isNavResponsiveActive ? "50%" : "100%")};

@@ -15,7 +15,7 @@ export const NAV_HEIGHT = "5rem"
 
 const activeNav = css`
   background-color: #ffffff;
-  color: #000000;
+  color: #111111;
   border-bottom: 0.0625rem solid #eeeeee;
 `
 const fixedNav = css`
