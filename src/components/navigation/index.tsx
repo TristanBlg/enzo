@@ -65,14 +65,11 @@ const itemActive = css`
 `
 
 interface ItemProps {
-  isItemActive?: boolean
-  isNavActive: boolean
   isResponsive: boolean
   onClick: Function
 }
 
 const itemResponsive = css`
-  color: #111111;
   margin-left: 0;
   font-size: 1.25rem;
   margin-bottom: 2rem;
@@ -81,9 +78,7 @@ const itemResponsive = css`
 const Item = styled.li<ItemProps>`
   margin-left: 2rem;
   cursor: pointer;
-  color: ${props => (props.isNavActive ? "#111111" : "#ffffff")};
 
-  ${props => props.isNavActive && props.isItemActive && itemActive}
   ${props => props.isResponsive && itemResponsive}
 `
 
@@ -95,7 +90,6 @@ interface NavigationProps {
 
 export const Navigation = ({ items, ...props }: NavigationProps) => {
   const {
-    isNavActive,
     isNavResponsive,
     isNavResponsiveActive,
     setIsNavResponsiveActive,
@@ -135,8 +129,6 @@ export const Navigation = ({ items, ...props }: NavigationProps) => {
           <Item
             key={key}
             isResponsive={isNavResponsive}
-            isNavActive={isNavActive}
-            isItemActive={false}
             onClick={() => handleClick(`#${item.id}`)}
           >
             {item.text}
