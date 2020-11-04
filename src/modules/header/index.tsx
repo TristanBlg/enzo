@@ -12,7 +12,8 @@ const Wrapper = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #2d3436;
+  background: #38ada9;
+  background: linear-gradient(90deg, #079992 0%, #38ada9 100%);
   height: ${HEADER_HEIGHT};
   color: #ffffff;
   padding: 0 2rem;

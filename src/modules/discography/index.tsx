@@ -35,7 +35,8 @@ const Start = styled.div`
 `
 
 const End = styled.div`
-  background: #2d3436;
+  background: #38ada9;
+  background: linear-gradient(90deg, #079992 0%, #38ada9 100%);
   padding: 2rem;
   color: #ffffff;
   display: flex;
