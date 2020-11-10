@@ -43,18 +43,18 @@ export default () => (
         />
         <meta property="og:url" content="https://enzoboulanger.com" />
       </Helmet>
-      <BreakpointProvider queries={theme.QUERIES}>
-        <NavProvider>
-          <Nav />
-          <Header />
-          <main role="main">
-            <Introduction />
-            <Discography />
-            <Tour />
-          </main>
-          <Footer />
-        </NavProvider>
-      </BreakpointProvider>
+      {/* <BreakpointProvider queries={theme.QUERIES}> */}
+      <NavProvider>
+        <Nav />
+        <Header />
+        <main role="main">
+          <Introduction />
+          <Discography />
+          <Tour />
+        </main>
+        <Footer />
+      </NavProvider>
+      {/* </BreakpointProvider> */}
     </ThemeProvider>
   </>
 )
